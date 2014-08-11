@@ -22,6 +22,16 @@
 
 
 
+    <div class="field">
+      <%= f.label :avatar %><br>
+      <%= f.file_field :avatar %>
+    </div>
+
+
+    <p>
+      <strong>Picture:</strong>
+      <%= image_tag(@user.avatar.url(:thumb)) if @user.avatar.present?%>
+    </p>
 
   <div><%= f.submit "Update" %></div>
 <% end %>

@@ -7,7 +7,10 @@ gem 'rails', '3.1.3'
 
 gem 'sqlite3'
 gem 'carrierwave'
-
+gem 'paperclip', '~> 3.0'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'debugger'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -15,8 +18,11 @@ group :assets do
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'mysql2',          '~> 0.3.13', :platform => :ruby
+gem 'thinking-sphinx', '~> 3.1.1'
 gem 'devise'
-gem 'jquery-rails'
+
 gem "therubyracer"
 gem 'cancan'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS

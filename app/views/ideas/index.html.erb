@@ -15,17 +15,21 @@
   </thead>
   <tbody>
     <% @ideas.each do |idea| %>
+      <% if can? :read, idea %>
       <tr>
+
+
         <td><%= link_to idea.id, idea_path(idea) %></td>
         <td><%= idea.name %></td>
         <td><%= idea.description %></td>
         <td><%= image_tag(idea.picture_url, :width => 50,:height =>50) if idea.picture.present? %></td>
         <td><%=l idea.created_at %></td>
+
         <td>
-          <% if can? :read, @article %>
+          <% if can? :read, idea %>
           <%=link_to "Show",idea_path(idea) , :class => "btn btn-mini btn-primary"  %>
           <%end%>
-          <% if can? :update, @article %>
+          <% if can? :update,idea%>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_idea_path(idea), :class => 'btn btn-mini' %>
               <%end%>
@@ -38,6 +42,7 @@
               <%end%>
         </td>
       </tr>
+      <%end%>
     <% end %>
   </tbody>
 </table>
@@ -46,3 +51,4 @@
             new_idea_path,
             :class => 'btn btn-primary' %>
 <%end%>
+

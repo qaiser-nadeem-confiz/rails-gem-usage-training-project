@@ -8,10 +8,14 @@ class Ability
        if user.role.nil?
         can :read , :all
        elsif user.role=='admin'
-         can :manage, :all
+         can :manage, Idea do |idea|
+           idea.ideaType==1
+         end
        elsif user.role=='normal'
-         can :update , :all
-         can :read, :all
+         can :manage, Idea do |idea|
+           idea.ideaType==2
+         end
+         can :create , Idea
         elsif user.role=='guest'
          can :read ,:all
        end
